@@ -20,6 +20,18 @@ export class UserService {
       headers: this.requestHeader,
     });
   }
+  public forUser() {
+    return this.httpclient.get(this.PATH_OF_API + '/forUser', {
+      responseType: 'text',
+    });
+  }
+
+
+  public forAdmin() {
+    return this.httpclient.get(this.PATH_OF_API + '/forAdmin', {
+      responseType: 'text',
+    });
+  }
 
   // Check if the role is correct with the path
   public roleCheck(allowedRoles: any): boolean {
@@ -41,4 +53,6 @@ export class UserService {
     }
     return isMatch;
   }
+
+  
 }

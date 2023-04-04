@@ -17,10 +17,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // check if user is login
   public isLoggedIn() {
     return this.userAuthService.isLoggedIn();
   }
 
+  //Logout current user
   public logout () {
     this.userAuthService.clear();
     this.router.navigate(['/home']);
