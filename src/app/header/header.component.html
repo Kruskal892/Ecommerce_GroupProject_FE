@@ -11,14 +11,16 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/admin">Admin Dashboard</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/admin"
+                    *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/user">User Dashboard</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/user"
+                        *ngIf="userService.roleCheck(['User'])">User Dashboard</a>
                 </li>
             </ul>
-            <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+            <button *ngIf="! isLoggedIn()" type="button" class="btn btn-login" routerLink="/login">Login</button>
             <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
         </div>
     </div>
