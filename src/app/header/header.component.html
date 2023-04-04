@@ -1,4 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #712df7;">
+<mat-toolbar color="primary">
+    <button *ngIf="isLoggedIn()" routerLink="/home" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon >home</mat-icon>
+    </button>
+    <span *ngIf="! isLoggedIn()" routerLink="/home">MeinKarmpShop</span>
+    <span>
+        <a class="nav-link active" aria-current="page" routerLink="/admin"
+            *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
+    </span>
+    <span>
+        <a class="nav-link active" aria-current="page" routerLink="/user" *ngIf="userService.roleCheck(['User'])">User
+            Dashboard</a>
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button *ngIf="! isLoggedIn()" routerLink="/login">Login</button>
+    <button mat-raised-button color="warn" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+
+</mat-toolbar>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #712df7;">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/home">
             MeinKarmp
@@ -12,7 +47,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink="/admin"
-                    *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
+                        *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
                 </li>
 
                 <li class="nav-item">
@@ -24,4 +59,4 @@
             <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
         </div>
     </div>
-</nav>
+</nav> -->
