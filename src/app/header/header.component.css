@@ -1,7 +1,8 @@
-.example-spacer {
+.example-spacer{
     flex: 1 1 auto;
-  }
-
-a{
+}
+.adminDashboard{
     text-decoration: none;
+    color: white;
+    margin-left: 20px;
 }

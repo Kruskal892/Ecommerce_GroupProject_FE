@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+                <form #productForm = "ngForm" (ngSubmit) = "addProduct(productForm)"> 
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Enter Product Name</mat-label>
+                    <input matInput placeholder="Enter Product Name" [(ngModel)] = "product.productName" name="productName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Enter Product Description</mat-label>
+                    <input matInput placeholder="Enter Product Description" [(ngModel)] = "product.productDescription" name="productDescription">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Enter Product Price</mat-label>
+                    <input matInput placeholder="Enter Product Price" [(ngModel)] = "product.productPrice" name="productPrice">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Enter Product Discount Price</mat-label>
+                    <input matInput placeholder="Enter Product Discount Price" [(ngModel)] = "product.productDiscountPrice" name="productDiscountPrice">
+                </mat-form-field>
+
+
+
+                <div class="d-flex justify-content-end ">
+                    <button mat-raised-button color="primary" style="margin-right: 5px;" type="submit">Add Product</button>
+                    <button mat-raised-button color="warn">Clear</button>
+                </div>
+            </form>
+
+                
+            </div>
+            <div class="col-6">
+                Image Area
+            </div>
+        </div>
+
+    </div>
+</div>

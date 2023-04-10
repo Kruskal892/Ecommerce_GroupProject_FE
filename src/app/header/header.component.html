@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-    <button *ngIf="isLoggedIn()" routerLink="/home" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon >home</mat-icon>
+    <button *ngIf="isLoggedIn()" routerLink="/" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>home</mat-icon>
     </button>
-    <span *ngIf="! isLoggedIn()" routerLink="/home">MeinKarmpShop</span>
+    <span *ngIf="! isLoggedIn()" routerLink="/">MeinKarmpShop</span>
     <span>
         <a class="nav-link active" aria-current="page" routerLink="/admin"
             *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
@@ -14,49 +15,8 @@
     <span class="example-spacer"></span>
     <button mat-raised-button *ngIf="! isLoggedIn()" routerLink="/login">Login</button>
     <button mat-raised-button color="warn" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
-
 </mat-toolbar>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #712df7;">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/home">
-            MeinKarmp
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/admin"
-                        *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/user"
-                        *ngIf="userService.roleCheck(['User'])">User Dashboard</a>
-                </li>
-            </ul>
-            <button *ngIf="! isLoggedIn()" type="button" class="btn btn-login" routerLink="/login">Login</button>
-            <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
-        </div>
-    </div>
-</nav> -->
+<mat-toolbar color="primary" *ngIf="isLoggedIn() && isAdmin()">
+    <button mat-raised-button  routerLink="/addNewProduct">Add New Product</button>
+</mat-toolbar>
