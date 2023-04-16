@@ -4,8 +4,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../model/product.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowProductImagesComponent } from '../show-product-images/show-product-images.component';
-import { ImageServiceService } from '../image-service.service';
 import { map } from 'rxjs/operators';
+import { ImageProcessingService } from '../image-processing.service';
 
 @Component({
   selector: 'app-show-product-details',
@@ -29,7 +29,7 @@ export class ShowProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     public imageBox: MatDialog,
-    private imageService: ImageServiceService
+    private imageProcessingService: ImageProcessingService,
   ) {}
 
   ngOnInit(): void {
@@ -38,18 +38,18 @@ export class ShowProductDetailsComponent implements OnInit {
 
   public getAllProducts() {
     this.productService.getAllProducts()
-    .pipe(
-      map((x: Product[], i) => x.map((product: Product) => this.imageService.createImages(product)))
+      .pipe(
+        map((products: Product[]) => products.map((product: Product, i: number) => this.imageProcessingService.createImages(product)))
       )
-    .subscribe(
-      (resp: Product[]) => {
-        // console.log(resp);
-        this.productDetails = resp;
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
+      .subscribe(
+        (resp: Product[]) => {
+          // console.log(resp);
+          this.productDetails = resp;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+        }
+      );
   }
 
   deleteProduct(productId: any) {
@@ -67,6 +67,9 @@ export class ShowProductDetailsComponent implements OnInit {
   showImages(product: Product) {
     console.log(product);
     this.imageBox.open(ShowProductImagesComponent, {
+      data: {
+        images: product.productImg
+      },
       height: '500px',
       width: '800px'
     })

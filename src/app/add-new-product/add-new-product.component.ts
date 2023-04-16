@@ -16,7 +16,7 @@ export class AddNewProductComponent implements OnInit {
     productDescription: '',
     productPrice: 0,
     productDiscountPrice: 0,
-    productImage: [],
+    productImg: [],
   };
 
   constructor(
@@ -32,7 +32,7 @@ export class AddNewProductComponent implements OnInit {
     this.productService.addProduct(productFormData).subscribe(
       (response: Product) => {
         productForm.reset();
-        this.product.productImage = [];
+        this.product.productImg = [];
       },
       (error) => {
         console.log(error);
@@ -48,11 +48,11 @@ export class AddNewProductComponent implements OnInit {
       new Blob([JSON.stringify(product)], { type: 'application/json' })
     );
 
-    for (var i = 0; i < product.productImage.length; i++) {
+    for (var i = 0; i < product.productImg.length; i++) {
       formData.append(
         'imageFile',
-        product.productImage[i].file,
-        product.productImage[i].file.name
+        product.productImg[i].file,
+        product.productImg[i].file.name
       );
     }
 
@@ -69,15 +69,15 @@ export class AddNewProductComponent implements OnInit {
           window.URL.createObjectURL(file)
         ),
       };
-      this.product.productImage.push(FileHandle);
+      this.product.productImg.push(FileHandle);
     }
   }
 
   removeImg(i: number){
-    this.product.productImage.splice(i, 1);
+    this.product.productImg.splice(i, 1);
   }
 
   fileDrop(fileHandle: FileHandle) {
-    this.product.productImage.push(fileHandle);
+    this.product.productImg.push(fileHandle);
   }
 }
