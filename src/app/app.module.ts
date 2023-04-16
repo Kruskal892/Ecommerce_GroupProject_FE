@@ -6,15 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from './authentication/auth.guard';
-import { AuthInterceptor } from './authentication/auth.interceptor';
+import { AuthGuard } from './components/authentication/auth.guard';
+import { AuthInterceptor } from './components/authentication/auth.interceptor';
 import { UserService } from './services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -23,13 +23,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DragDirective } from './drag.directive';
-import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
+import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ShowProductImagesComponent } from './show-product-images/show-product-images.component';
+import { ShowProductImagesComponent } from './components/show-product-images/show-product-images.component';
 
 
 

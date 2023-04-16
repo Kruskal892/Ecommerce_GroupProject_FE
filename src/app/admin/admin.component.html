@@ -1,3 +1,7 @@
+<mat-toolbar color="primary" *ngIf="isLoggedIn() && isAdmin()">
+    <button mat-raised-button  routerLink="/addNewProduct" style="margin-right: 10px;">Add New Product</button>
+    <button mat-raised-button  routerLink="/showAllProduct">Show All Products</button>
+</mat-toolbar>
 <div class="container mt-5">
     <div class="card" style="padding: 20px; text-align: center;">
         <h1>All Hail Hydra</h1>

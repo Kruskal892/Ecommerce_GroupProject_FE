@@ -31,8 +31,11 @@
 
 
                     <div class="d-flex justify-content-end ">
-                        <button mat-raised-button color="primary" style="margin-right: 5px;" type="submit">Add
-                            Product</button>
+                        <button *ngIf="isNewProduct" mat-raised-button color="primary" style="margin-right: 5px;" type="submit">
+                            Add Product</button>
+                        <button *ngIf="!isNewProduct"  mat-raised-button color="primary" style="margin-right: 5px;" type="submit"> 
+                            Update Product
+                        </button>
                         <button mat-raised-button color="warn">Clear</button>
                     </div>
                 </form>
@@ -41,15 +44,16 @@
             </div>
             <div class="col-6">
                 <div>
-                    <div class="dropzone" appDrag (files) ="fileDrop($event)">
+                    <div class="dropzone" appDrag (files)="fileDrop($event)">
                         <div class="dropzone-mess">
-                            Drag and drop or 
+                            Drag and drop or
                             <a (click)="selectFile.click()" class="btn-browse">browse</a>
                             your files here.
                         </div>
                     </div>
 
-                    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)" style="display: none;">
+                    <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)"
+                        style="display: none;">
                 </div>
                 <div class="mt-5">
                     <div class="row">

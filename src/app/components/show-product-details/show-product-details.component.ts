@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../../services/product.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Product } from '../model/product.model';
+import { Product } from '../../model/product.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ShowProductImagesComponent } from '../show-product-images/show-product-images.component';
 import { map } from 'rxjs/operators';
-import { ImageProcessingService } from '../image-processing.service';
+import { ImageProcessingService } from '../../services/image-processing.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-product-details',
@@ -30,6 +31,7 @@ export class ShowProductDetailsComponent implements OnInit {
     private productService: ProductService,
     public imageBox: MatDialog,
     private imageProcessingService: ImageProcessingService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,9 +39,14 @@ export class ShowProductDetailsComponent implements OnInit {
   }
 
   public getAllProducts() {
-    this.productService.getAllProducts()
+    this.productService
+      .getAllProducts()
       .pipe(
-        map((products: Product[]) => products.map((product: Product, i: number) => this.imageProcessingService.createImages(product)))
+        map((products: Product[]) =>
+          products.map((product: Product, i: number) =>
+            this.imageProcessingService.createImages(product)
+          )
+        )
       )
       .subscribe(
         (resp: Product[]) => {
@@ -65,14 +72,17 @@ export class ShowProductDetailsComponent implements OnInit {
   }
 
   showImages(product: Product) {
-    console.log(product);
+    // console.log(product);
     this.imageBox.open(ShowProductImagesComponent, {
       data: {
-        images: product.productImg
+        images: product.productImg,
       },
       height: '500px',
-      width: '800px'
-    })
+      width: '800px',
+    });
   }
 
+  editProducts(productId: any) {
+    this.router.navigate(['/addNewProduct', {productId: productId}])
+  }
 }
