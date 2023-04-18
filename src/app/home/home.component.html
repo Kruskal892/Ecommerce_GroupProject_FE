@@ -1,44 +1,51 @@
-<section id="home">
-    <div class="home_page ">
-        <div class="home_img ">
-            <img src="../../assets/img/refuse.jpg" alt="img ">
-        </div>
-        <div class="home_txt ">
-            <p class="collectio ">SUMMER DEAL</p>
-            <h2>SUMMER<br>BACK TO SCHOOL 2023</h2>
-            <div class="home_label ">
-                <p>A specialist label creating luxury essentials. Ethically crafted<br>with an unwavering commitment to
-                    exceptional quality.</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<body>
+    <section id="home">
+        <div class="home_page ">
+            <div class="home_img ">
+                <img src="../../assets/img/banner.jpg" alt="img ">
             </div>
-            <button class="btn-buy"><a href="#sellers">SHOP NOW</a><i class='bx bx-right-arrow-alt'></i></button>
+            <div class="home_txt ">
+                <p class="collectio ">SUMMER DEAL</p>
+                <h2>SUMMER<br>BACK TO SCHOOL 2023</h2>
+                <div class="home_label ">
+                    <p>A specialist label creating luxury essentials. Ethically crafted<br>with an unwavering commitment
+                        to
+                        exceptional quality.</p>
+                </div>
+                <button class="btn-buy"><a href="#home-container">SHOP NOW</a><i class='bx bx-right-arrow-alt'></i></button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
-    <div class="seller container">
-        <h2>Top Sales</h2>
-        <div class="best-seller">
-            <div class="best-p1" *ngFor="let x of productDetails">
-                <img [src]="x.productImg[0].url" alt="img" class="productImg">
-                <div class="best-p1-txt">
-                    <div class="name-of-p">
-                        <p class="homepage_product-name">{{x.productName}}</p>
-                        <p class="homepage_product-decs">{{x.productDescription}}</p>
-                    </div>
-
-                    <div class="price">
-                        <p><del>Actual Price: {{x.productPrice}}</del><br> </p>
-                    </div>
-                    <div >
-                        <p class="discount-price">Discounted Price: {{x.productDiscountPrice}}</p>
-                    </div>
-
-                    <div class="buy-now">
-                        <button><a href="">Buy Now</a></button>
+    <div class="homepage-container" id="home-container">
+        <div class="seller container">
+            <h2>Top Sales</h2>
+            <div class="best-seller">
+                <div class="best-p1" *ngFor="let x of productDetails">
+                    <img [src]="x.productImg[0].url" alt="img" class="productImg">
+                    <div class="best-p1-txt">
+                        <div class="name-of-p">
+                            <p class="homepage_product-name">{{x.productName}}</p>
+                            <p class="homepage_product-decs">{{x.productDescription}}</p>
+                        </div>
+    
+                        <div class="price">
+                            <p><del>Actual Price: {{x.productPrice}}</del><br> </p>
+                        </div>
+                        <div>
+                            <p class="discount-price">Discounted Price: {{x.productDiscountPrice}}</p>
+                        </div>
+    
+                        <div class="buy-now">
+                            <button><a href="">Buy Now</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+</body>

@@ -21,10 +21,9 @@ export class ShowProductDetailsComponent implements OnInit {
     'Product Name',
     'Description',
     'Price',
-    'Discounted Price',
-    'Images',
-    'Edit',
-    'Delete',
+    'DiscountedPrice',
+    'Actions',
+
   ];
 
   constructor(

@@ -8,8 +8,8 @@ HttpRequest,
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { Injectable } from '@angular/core';
 import { UserAuthService } from '../../services/user-auth.service';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -26,8 +26,10 @@ intercept(
 
   const token = this.userAuthService.getToken();
 
-  req = this.addToken(req, token);
-
+  if(token) {
+    req = this.addToken(req, token);
+  }
+  
   return next.handle(req).pipe(
       catchError(
           (err:HttpErrorResponse) => {

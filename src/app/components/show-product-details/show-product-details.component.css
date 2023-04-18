@@ -1,4 +1,19 @@
 .mdc-data-table__table{
-    min-width: 80%;
+    min-width: 90%;
     margin: auto;
+}
+.mat-column-Description{
+    width: 30%;
+}
+.mat-column-Price{
+    text-align: center;
+}
+.mat-column-DiscountedPrice{
+    width: 10%;
+}
+.mat-column-Actions{
+    text-align: center !important;
+}
+td, th{
+    text-align: center;
 }
