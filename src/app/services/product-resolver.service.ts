@@ -21,7 +21,7 @@ export class ProductResolverService implements Resolve<Product> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Product> {
-    const id = route.paramMap.get("productId");
+    const id = route.paramMap.get("id");
     if (id) {
       return this.productService.getProductDetailById(+id)
       .pipe(

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-xl-7">
+            <div class="card">
+                <img [src]="product.productImg[selectedProductIndex].url" alt="">
+            </div>
+            <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let obj of product.productImg; let i = index;" (click) = "changeImgIndex(i)">
+                    <img [src]="obj.url" alt="">
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+
+        <div class="col-4">
+            <div class="product_info mt-3">
+                <div class="product_info-title">
+                    <h2>{{product.productName}}</h2>
+                </div>
+
+                <div class="product_info-decs mt-3">
+                    Description: <br>
+                    {{product.productDescription}}
+                </div>
+
+                <div class="product_info-price mt-3">
+                    <del>{{product.productPrice.toLocaleString()}}</del>
+                    <p class="product_info-discountprice">{{product.productDiscountPrice.toLocaleString()}} VND</p>
+                </div>
+
+                <div class="text-center">
+                    <button mat-raised-button class="mt-5 ">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

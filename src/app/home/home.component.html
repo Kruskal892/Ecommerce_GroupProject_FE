@@ -33,14 +33,16 @@
                         </div>
     
                         <div class="price">
-                            <p><del>Actual Price: {{x.productPrice}}</del><br> </p>
+                            <p><del>Actual Price: {{x.productPrice.toLocaleString()}}</del><br> </p>
                         </div>
                         <div>
-                            <p class="discount-price">Discounted Price: {{x.productDiscountPrice}}</p>
+                            <p class="discount-price">Discounted Price: {{x.productDiscountPrice.toLocaleString()}}</p>
                         </div>
     
                         <div class="buy-now">
-                            <button><a href="">Buy Now</a></button>
+                            <button (click) = "viewProductDetails(x.id)"> 
+                               Buy Now
+                            </button>
                         </div>
                     </div>
                 </div>

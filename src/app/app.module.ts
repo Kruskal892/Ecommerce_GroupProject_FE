@@ -30,6 +30,7 @@ import { ShowProductDetailsComponent } from './components/show-product-details/s
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ShowProductImagesComponent } from './components/show-product-images/show-product-images.component';
+import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 
 
 
@@ -50,7 +51,8 @@ import { ShowProductImagesComponent } from './components/show-product-images/sho
     AddNewProductComponent,
     DragDirective,
     ShowProductDetailsComponent,
-    ShowProductImagesComponent
+    ShowProductImagesComponent,
+    ViewProductDetailsComponent
   ],
   imports: [
     BrowserModule,

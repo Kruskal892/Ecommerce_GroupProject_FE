@@ -81,7 +81,7 @@ export class ShowProductDetailsComponent implements OnInit {
     });
   }
 
-  editProducts(productId: any) {
-    this.router.navigate(['/addNewProduct', {productId: productId}])
+  editProducts(id: any) {
+    this.router.navigate(['/addNewProduct', {id: id}])
   }
 }

@@ -1,0 +1,67 @@
+.container{
+    overflow: hidden;
+}
+.col-4{
+    margin-left: 6rem;
+}
+.product_info{
+    font-size: medium;
+
+}
+
+.product_info-title{
+    font-weight: bold;
+}
+
+.product_info-price{
+    font-weight: bold;
+    color: rgb(146,146,146);
+    font-size: smaller;
+}
+
+.product_info-discountprice{
+    font-weight: bold;
+    display: inline-block;
+    font-size: 30px;
+    margin-left: 10px;
+    color: red;
+}
+button{
+    background-color: red !important;
+    color: white !important;
+    width: 200px;
+    text-align: center;
+    border-radius: 0 !important;
+}
+img{
+    width: 100%;
+    border: 1px solid black;
+}
+.card{
+    height: 400px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.card img{
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border: none;
+}
+
+mat-grid-tile img:hover{
+    cursor: pointer;
+}
+
+@media(min-width: 200px) and (max-width: 1200px) {
+    .col-4{
+        width: 100%;
+        margin: 0;
+    }
+}
