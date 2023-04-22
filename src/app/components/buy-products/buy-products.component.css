@@ -1,3 +1,6 @@
 .table_heading{
     border-color: black;
 }
+.buy-btn button{
+    width: 100%;
+}

@@ -6,29 +6,29 @@
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Full Name</mat-label>
                         <input matInput placeholder="Enter Your Full Name" [(ngModel)]="orderDetails.fullName"
-                            name="fullName">
+                            name="fullName" required="required">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Full Address</mat-label>
                         <input matInput placeholder="Enter Your Address" [(ngModel)]="orderDetails.address"
-                            name="fullName">
+                            name="fullName" required="required">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Enter Your Email Address" [(ngModel)]="orderDetails.email" type="email"
-                            name="email">
+                        <input matInput placeholder="Enter Your Email Address" [(ngModel)]="orderDetails.email"
+                            type="email" name="email" required="required">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Contact Number</mat-label>
                         <input matInput placeholder="Enter Your Contact Number" [(ngModel)]="orderDetails.contactNumber"
-                            name="contactNumber">
+                            name="contactNumber" required="required">
                     </mat-form-field>
 
-                    <div align="middle" >
-                        <button type="submit" mat-stroked-button color="warn" style="width: 100%;" >Buy Now</button>
+                    <div align="middle" class="buy-btn">
+                        <button type="submit" mat-stroked-button color="warn">Buy Now</button>
                     </div>
                 </form>
             </div>
@@ -48,7 +48,8 @@
                             <td>{{p.productName}}</td>
                             <td>{{p.productDiscountPrice.toLocaleString()}}</td>
                             <td class="table_body-amount">
-                                <input type="number" name="" #quantity min="1" style="width: 100%;" [ngModel] = "getQuantityValue(p.id)" (change)="onChangeAmount(quantity.value, p.id)">
+                                <input type="number" name="" #quantity min="1" style="width: 100%;"
+                                    [ngModel]="getQuantityValue(p.id)" (change)="onChangeAmount(quantity.value, p.id)">
                             </td>
                             <td>
                                 {{getCalculatedPrice(p.id, p.productDiscountPrice).toLocaleString()}}
