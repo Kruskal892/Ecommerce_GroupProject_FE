@@ -18,6 +18,7 @@ export class BuyProductsComponent implements OnInit{
     fullName: '',
     address: '',
     contactNumber: '',
+    email: '',
     countProductQuantityList: [] 
   }
 
@@ -43,5 +44,40 @@ export class BuyProductsComponent implements OnInit{
         console.log(error)
       }
     )
+  }
+
+  getQuantityValue(id:any){
+    const filterProductList =  this.orderDetails.countProductQuantityList.filter(
+      (productQuantity) => productQuantity.productId === id
+    );
+
+    return filterProductList[0].quantity;
+  }
+
+  getCalculatedPrice(id:any, productDiscountPrice:any){
+    const filterProductList =  this.orderDetails.countProductQuantityList.filter(
+      (productQuantity) => productQuantity.productId === id
+    );
+
+    return filterProductList[0].quantity * productDiscountPrice
+  }
+
+  onChangeAmount(value: any, id: any){
+    this.orderDetails.countProductQuantityList.filter(
+      (orderAmount) => orderAmount.productId === id  
+    )[0].quantity = value;
+  }
+
+  getTotalPrice(){
+    let totalPrice = 0;
+    this.orderDetails.countProductQuantityList.forEach(
+      (productQuantity) => {
+        const price = this.productDetails.filter(product => product.id === productQuantity.productId)[0].productDiscountPrice;
+       totalPrice = totalPrice +  price * productQuantity.quantity;
+
+      }  
+    );
+
+    return totalPrice;
   }
 }
