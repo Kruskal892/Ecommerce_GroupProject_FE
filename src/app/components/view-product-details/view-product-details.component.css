@@ -36,6 +36,7 @@ button{
 img{
     width: 100%;
     border: 1px solid black;
+    height: 100%;
 }
 .card{
     height: 400px;

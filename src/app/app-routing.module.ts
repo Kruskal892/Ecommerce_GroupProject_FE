@@ -10,6 +10,8 @@ import { AddNewProductComponent } from './components/add-new-product/add-new-pro
 import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
 import { ProductResolverService } from './services/product-resolver.service';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
+import { BuyProductsComponent } from './components/buy-products/buy-products.component';
+import { BuyProductResolverService } from './services/buy-product-resolver.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,6 +48,13 @@ const routes: Routes = [
     path: 'viewProductDetails',
     component: ViewProductDetailsComponent,
     resolve: { product: ProductResolverService },
+  },
+  {
+    path: 'buyProduct',
+    component: BuyProductsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+    resolve: { productDetails: BuyProductResolverService },
   },
 ];
 

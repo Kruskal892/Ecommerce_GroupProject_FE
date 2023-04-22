@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
+import { Order } from '../model/orders.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,13 @@ export class ProductService {
 
   public getProductDetailById(id: number){
     return this.httpClient.get<Product>("http://localhost:8080/getProductDetailsById/"+id);
+  }
+
+  public getProductDetails(isSingleProduct:any, id:any) {
+    return this.httpClient.get<Product[]>("http://localhost:8080/getProductDetails/" + isSingleProduct +"/" +id)
+  }
+
+  public placeOrder(order: Order) {
+    return this.httpClient.post("http://localhost:8080/placeOrder", order);
   }
 }
