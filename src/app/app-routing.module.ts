@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,6 +12,7 @@ import { ProductResolverService } from './services/product-resolver.service';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { BuyProductsComponent } from './components/buy-products/buy-products.component';
 import { BuyProductResolverService } from './services/buy-product-resolver.service';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +57,13 @@ const routes: Routes = [
     data: { roles: ['User'] },
     resolve: { productDetails: BuyProductResolverService },
   },
+  {
+    path: 'orderConfirmation',
+    component: OrderConfirmationComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+    
+  }
 ];
 
 @NgModule({

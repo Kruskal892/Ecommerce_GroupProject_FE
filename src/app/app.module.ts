@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './components/login/login.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ShowProductImagesComponent } from './components/show-product-images/show-product-images.component';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { BuyProductsComponent } from './components/buy-products/buy-products.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 
 
@@ -54,7 +55,8 @@ import { BuyProductsComponent } from './components/buy-products/buy-products.com
     ShowProductDetailsComponent,
     ShowProductImagesComponent,
     ViewProductDetailsComponent,
-    BuyProductsComponent
+    BuyProductsComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,
