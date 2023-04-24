@@ -33,10 +33,7 @@ import { ShowProductImagesComponent } from './components/show-product-images/sho
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { BuyProductsComponent } from './components/buy-products/buy-products.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
-
-
-
-
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -56,7 +53,8 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     ShowProductImagesComponent,
     ViewProductDetailsComponent,
     BuyProductsComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +72,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     MatCardModule,
     MatGridListModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     AuthGuard,

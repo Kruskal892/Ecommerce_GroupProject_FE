@@ -1,0 +1,13 @@
+.register{
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: medium;
+}
+.toRegister{
+    color: #EE4D2D;
+}
+
+.toRegister:hover{
+    cursor: pointer;
+}

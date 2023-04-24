@@ -1,0 +1,50 @@
+<div class="container d-flex" style="justify-content: space-between; align-items: center; height: 90%;">
+    <div class="card" style="padding: 20px; width: 45%;">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input ngModel name="userName" id="userName" matInput placeholder="Enter your username">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User First Name</mat-label>
+                <input ngModel name="userFirstName" id="userFirstName" matInput placeholder="Enter your First Name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User Last Name</mat-label>
+                <input ngModel name="userLastName" id="userLastName" matInput placeholder="Enter your Last Name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User Password</mat-label>
+                <input ngModel name="userPassword" id="userPassword" matInput placeholder="Enter your Password">
+                <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User Address</mat-label>
+                <input ngModel name="userAddress" id="userAddress" matInput placeholder="Enter your Address">
+                <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User Email</mat-label>
+                <input ngModel name="userEmail" id="userEmail" matInput placeholder="Enter your Email">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>User Phone Number</mat-label>
+                <input ngModel name="userPhone" id="userPhone" matInput placeholder="Enter your Phone Number">
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            
+            <button class="w-100" type="submit" value="Login" mat-raised-button color="primary">Join the circus</button>
+        </form>
+    </div>
+    <img src="../../../assets/c4120b20992b13f44f4f71e0dc70ddd7.png" alt="" width="500px" height="500px">
+</div> 
