@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./show-product-details.component.css'],
 })
 export class ShowProductDetailsComponent implements OnInit {
+  showTable = false;
+  isMoreProduct = false;
+  pageCount:number = 0;
   productDetails: Product[] = [];
 
   displayedColumns: string[] = [
@@ -37,9 +40,17 @@ export class ShowProductDetailsComponent implements OnInit {
     this.getAllProducts();
   }
 
-  public getAllProducts() {
+  searchByKeyWord(searchbykeyword:any){
+    console.log(searchbykeyword);
+    this.pageCount = 0;
+    this.productDetails =[];
+    this.getAllProducts(searchbykeyword)
+  }
+
+  public getAllProducts(searchKey:string = "") {
+    this.showTable = false;
     this.productService
-      .getAllProducts()
+      .getAllProducts(this.pageCount, searchKey)
       .pipe(
         map((products: Product[]) =>
           products.map((product: Product, i: number) =>
@@ -49,8 +60,14 @@ export class ShowProductDetailsComponent implements OnInit {
       )
       .subscribe(
         (resp: Product[]) => {
-          // console.log(resp);
-          this.productDetails = resp;
+          console.log(resp)
+          resp.forEach(product => this.productDetails.push(product));
+          this.showTable = true;
+          if(resp.length == 8) {
+            this.isMoreProduct = true;
+          }else{
+            this.isMoreProduct = false;
+          }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
@@ -83,5 +100,10 @@ export class ShowProductDetailsComponent implements OnInit {
 
   editProducts(id: any) {
     this.router.navigate(['/addNewProduct', {id: id}])
+  }
+
+  public loadMoreProduct(){
+    this.pageCount = this.pageCount + 1;
+    this.getAllProducts();
   }
 }

@@ -29,9 +29,10 @@
 button{
     background-color: red !important;
     color: white !important;
-    width: 200px;
+    width: 150px;
     text-align: center;
     border-radius: 0 !important;
+    margin: 0 1rem;
 }
 img{
     width: 100%;

@@ -1,4 +1,5 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <body>
     <section id="home">
         <div class="home_page ">
@@ -13,14 +14,24 @@
                         to
                         exceptional quality.</p>
                 </div>
-                <button class="btn-buy"><a href="#home-container">SHOP NOW</a><i class='bx bx-right-arrow-alt'></i></button>
+                <button class="btn-buy"><a href="#home-container">SHOP NOW</a><i
+                        class='bx bx-right-arrow-alt'></i></button>
             </div>
         </div>
+
+
     </section>
 
 
 
     <div class="homepage-container" id="home-container">
+        <div class="searchBar container">
+            <mat-form-field appearance="outline">
+                <mat-label>Find Product</mat-label>
+                <input #searchbykeyword (keyup) = "searchByKeyWord(searchbykeyword.value)" matInput placeholder="Enter your product name">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
         <div class="seller container">
             <h2>Top Sales</h2>
             <div class="best-seller">
@@ -31,17 +42,17 @@
                             <p class="homepage_product-name">{{x.productName}}</p>
                             <p class="homepage_product-decs">{{x.productDescription}}</p>
                         </div>
-    
+
                         <div class="price">
                             <p><del>Actual Price: {{x.productPrice.toLocaleString()}}</del><br> </p>
                         </div>
                         <div>
                             <p class="discount-price">Discounted Price: {{x.productDiscountPrice.toLocaleString()}}</p>
                         </div>
-    
+
                         <div class="buy-now">
-                            <button (click) = "viewProductDetails(x.id)"> 
-                               Buy Now
+                            <button (click)="viewProductDetails(x.id)">
+                                <p>Buy Now</p>
                             </button>
                         </div>
                     </div>
@@ -49,5 +60,8 @@
             </div>
         </div>
     </div>
-    
+    <div class="text-center" *ngIf="isMoreProduct">
+        <button (click)="showNextPage()">Load More</button>
+    </div>
+
 </body>

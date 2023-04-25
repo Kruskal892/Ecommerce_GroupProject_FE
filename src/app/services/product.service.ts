@@ -14,8 +14,8 @@ export class ProductService {
     return this.httpClient.post<Product>("http://localhost:8080/addNewProduct", product);
   }
 
-  public getAllProducts() {
-    return this.httpClient.get<Product[]>("http://localhost:8080/getAllProducts");
+  public getAllProducts(pageCount: number, searchByKeyWord:string = "") {
+    return this.httpClient.get<Product[]>("http://localhost:8080/getAllProducts?pageCount=" + pageCount + "&searchKey=" + searchByKeyWord);
   }
 
   public deleteProducts(productId: number) {
@@ -27,10 +27,14 @@ export class ProductService {
   }
 
   public getProductDetails(isSingleProduct:any, id:any) {
-    return this.httpClient.get<Product[]>("http://localhost:8080/getProductDetails/" + isSingleProduct +"/" +id)
+    return this.httpClient.get<Product[]>("http://localhost:8080/getProductDetails/" + isSingleProduct +"/" +id);
   }
 
   public placeOrder(order: Order) {
     return this.httpClient.post("http://localhost:8080/placeOrder", order);
+  }
+
+  public addToCart(id: any) {
+    return this.httpClient.get("http://localhost:8080/addToCart/"+id);
   }
 }

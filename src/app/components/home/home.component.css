@@ -1,9 +1,16 @@
-
+p{
+    margin: 0;
+}
 
 body {
     font-family: "Poppins", sans-serif;
     font-size: 15px;
+    background-color: #f5f5f5;
 }
+.searchBar{
+    background-color: #f5f5f5;
+}
+
 
 .homepage-container{
     width: 100%;
@@ -11,6 +18,8 @@ body {
     justify-content: center;
     background-color: #f5f5f5;
     padding-bottom: 50px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .homepage-productImg img{
@@ -55,6 +64,11 @@ body {
 .homepage_product-name{
     padding-top: 1rem;
     font-weight: bold;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
 }
 
 .home_page img {
@@ -119,7 +133,7 @@ body {
 
 .best-seller {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     overflow-x: hidden;
     flex-wrap: wrap;
@@ -128,7 +142,6 @@ body {
 
 
 .seller h2 {
-    margin-top: 65px;
     margin-bottom: 20px;
 }
 
@@ -195,10 +208,32 @@ body {
     font-weight: 600;
 }
 
-.best-seller .buy-now button:hover a,
-.best-seller .add-cart button:hover a {
+.best-seller .buy-now button:hover p,
+.best-seller .add-cart button:hover p {
     color: black;
 }
+.text-center{
+    background-color: #f5f5f5;
+}
+.text-center button{
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #2c2a2a;
+    color: white;
+    border-radius: 15px;
+    font-weight: 500;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+.text-center button:hover{
+    background-color: white;
+    font-weight: 600;
+    color: #000;
+}
+
 
 
 /* Responsive */

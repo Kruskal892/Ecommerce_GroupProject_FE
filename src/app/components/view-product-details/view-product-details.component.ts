@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product.model';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-view-product-details',
@@ -12,7 +13,7 @@ export class ViewProductDetailsComponent implements OnInit {
 
   product: Product;
 
-  constructor(private activatedRoute: ActivatedRoute,private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.product = this.activatedRoute.snapshot.data['product'];
@@ -23,10 +24,22 @@ export class ViewProductDetailsComponent implements OnInit {
     this.selectedProductIndex = index;
   }
 
-  buyProduct(id:any) {
-    this.router.navigate(['/buyProduct', {
-      isSingleProduct : true,
-      id: id
-    }])
+  buyProduct(id: any) {
+    this.router.navigate([
+      '/buyProduct',
+      {
+        isSingleProduct: true,
+        id: id,
+      },
+    ]);
+  }
+  addProductToCart(id: any) {
+    this.productService.addToCart(id).subscribe(
+        (resp) => {
+          console.log(resp)
+        },(error) => {
+          console.log(error)
+        }
+      )
   }
 }
