@@ -1,0 +1,18 @@
+th, td{
+    text-align: center;
+}
+
+.mat-column-DiscountedPrice{
+    width: 20%;
+}
+
+
+.mat-column-Description{
+    width: 60%;
+}
+.mat-column-Price{
+    text-align: center;
+}
+.mat-column-DiscountedPrice{
+    width: 20%;
+}

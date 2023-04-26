@@ -11,6 +11,8 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./buy-products.component.css'],
 })
 export class BuyProductsComponent implements OnInit {
+  isSingleProduct: any = '';
+
   productDetails: Product[] = [];
 
   orderDetails: Order = {
@@ -28,6 +30,8 @@ export class BuyProductsComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
+    this.isSingleProduct = this.activatedRoute.snapshot.paramMap.get("isSingleProduct");
+
     this.productDetails.forEach((x) =>
       this.orderDetails.countProductQuantityList.push({
         productId: x.id,
@@ -40,7 +44,7 @@ export class BuyProductsComponent implements OnInit {
   }
 
   public placeOrder(orderForm: NgForm) {
-    this.productService.placeOrder(this.orderDetails).subscribe(
+    this.productService.placeOrder(this.orderDetails, this.isSingleProduct).subscribe(
       (resp) => {
         console.log(resp);
         orderForm.reset();

@@ -14,6 +14,7 @@ import { BuyProductsComponent } from './components/buy-products/buy-products.com
 import { BuyProductResolverService } from './services/buy-product-resolver.service';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,6 +66,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['User'] },
   },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+  }
 ];
 
 @NgModule({

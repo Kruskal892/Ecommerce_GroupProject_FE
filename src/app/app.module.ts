@@ -34,6 +34,7 @@ import { ViewProductDetailsComponent } from './components/view-product-details/v
 import { BuyProductsComponent } from './components/buy-products/buy-products.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -54,7 +55,8 @@ import { RegisterComponent } from './components/register/register.component';
     ViewProductDetailsComponent,
     BuyProductsComponent,
     OrderConfirmationComponent,
-    RegisterComponent
+    RegisterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

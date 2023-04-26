@@ -48,7 +48,7 @@
                             <td>{{p.productName}}</td>
                             <td>{{p.productDiscountPrice.toLocaleString()}}</td>
                             <td class="table_body-amount">
-                                <input type="number" name="" #quantity min="1" style="width: 100%;"
+                                <input type="number" name="" #quantity min="0" style="width: 100%;"
                                     [ngModel]="getQuantityValue(p.id)" (change)="onChangeAmount(quantity.value, p.id)">
                             </td>
                             <td>

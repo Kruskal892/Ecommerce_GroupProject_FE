@@ -30,11 +30,19 @@ export class ProductService {
     return this.httpClient.get<Product[]>("http://localhost:8080/getProductDetails/" + isSingleProduct +"/" +id);
   }
 
-  public placeOrder(order: Order) {
-    return this.httpClient.post("http://localhost:8080/placeOrder", order);
+  public placeOrder(order: Order, isCartCheckout:any) {
+    return this.httpClient.post("http://localhost:8080/placeOrder/" + isCartCheckout, order);
   }
 
   public addToCart(id: any) {
     return this.httpClient.get("http://localhost:8080/addToCart/"+id);
+  }
+
+  public getCartInformation() {
+    return this.httpClient.get("http://localhost:8080/getCartDetails");
+  }
+
+  public deleteCartItem(cartId:any){
+    return this.httpClient.delete("http://localhost:8080/deleteCartItem/" + cartId);
   }
 }
