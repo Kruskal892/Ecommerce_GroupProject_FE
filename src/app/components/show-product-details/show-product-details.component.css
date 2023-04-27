@@ -24,7 +24,9 @@ td, th{
     justify-content: center;
     padding-top: 3rem;
     width: fit-content;
-    align-items: center
+    align-items: center;
+    margin-top: 6rem;
+    
 }
 
 mat-form-field{

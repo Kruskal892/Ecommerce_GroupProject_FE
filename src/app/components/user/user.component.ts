@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { tap } from 'rxjs';
-import { ProductService } from '../services/product.service';
-import { userOrderDetails } from '../model/order-detail-model';
+import { userOrderDetails } from 'src/app/model/order-detail-model';
+import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-user',

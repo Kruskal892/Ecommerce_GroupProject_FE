@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { UserComponent } from './user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
@@ -35,6 +34,10 @@ import { BuyProductsComponent } from './components/buy-products/buy-products.com
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CartComponent } from './components/cart/cart.component';
+import { UserComponent } from './components/user/user.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 
 
@@ -75,6 +78,8 @@ import { CartComponent } from './components/cart/cart.component';
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
+    MatCheckboxModule,
+    MatButtonToggleModule
   ],
   providers: [
     AuthGuard,

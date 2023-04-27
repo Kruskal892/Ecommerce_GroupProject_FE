@@ -1,6 +1,9 @@
 mat-grid-tile {
     border: 1px solid #575656;
 }
+.container{
+    margin-top: 6rem !important;
+}
 
 .btn-remove-img {
     position: absolute;

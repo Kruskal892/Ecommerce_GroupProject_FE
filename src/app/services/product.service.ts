@@ -51,4 +51,12 @@ export class ProductService {
   public getAllOrder(): Observable<userOrderDetails[]>{
     return this.httpClient.get<userOrderDetails[]>("http://localhost:8080/getOrder");
   }
+
+  public getAllUserOrder(status:any): Observable<userOrderDetails[]> {
+    return this.httpClient.get<userOrderDetails[]>("http://localhost:8080/getAllOrder/"+status)
+  }
+
+  public markedAsDelivered(orderId:number) {
+    return this.httpClient.get("http://localhost:8080/markedAsDelivered/" + orderId)
+  }
 }
