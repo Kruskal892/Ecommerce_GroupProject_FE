@@ -1,24 +1,55 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <button *ngIf="isLoggedIn()" routerLink="/" mat-icon-button class="example-icon"
         aria-label="Example icon-button with menu icon">
-        <mat-icon>home</mat-icon>
+        <mat-icon style="line-height: 1.3;">home</mat-icon>
+        Home
     </button>
     <span *ngIf="! isLoggedIn()" routerLink="/">MeinKarmpShop</span>
     <span>
         <a class="nav-link active" aria-current="page" routerLink="/admin"
             *ngIf="userService.roleCheck(['Admin'])">Admin Dashboard</a>
     </span>
-    <span>
-        <a class="nav-link active" aria-current="page" routerLink="/user" *ngIf="userService.roleCheck(['User'])">User
-            Dashboard</a>
-    </span>
+
     <span class="example-spacer"></span>
+    <span>
+        <button mat-raised-button routerLink="/user" class="example-icon" *ngIf="userService.roleCheck(['User'])">
+            User Dashboard
+            <mat-icon>person</mat-icon>
+        </button>
+    </span>
     <button *ngIf="userService.roleCheck(['User'])" routerLink="/cart" mat-icon-button class="example-icon"
         aria-label="Example icon-button with menu icon">
         <mat-icon>shopping_cart</mat-icon>
     </button>
     <button mat-raised-button *ngIf="! isLoggedIn()" routerLink="/login">Login</button>
     <button mat-raised-button color="warn" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
-</mat-toolbar>
+</mat-toolbar> -->
 
 
+
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/">
+                <mat-icon style="line-height: 1.3;">home</mat-icon>
+                MeinKarmpShop
+            </a>
+        </li>
+        <span class="example-spacer"></span>
+        <li ><a routerLink="/admin" *ngIf="userService.roleCheck(['Admin'])" class="header_admin">Admin Menu</a>
+            <ul>
+                <li><a routerLink="/addNewProduct">Add New Product</a></li>
+                <li><a routerLink="/showAllProduct">Show All Product</a></li>
+                <li><a *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
+            </ul>
+        </li>
+        <li><a *ngIf="! isLoggedIn()" routerLink="/login">Login</a></li>
+        <li ><a routerLink="/user" *ngIf="userService.roleCheck(['User'])" class="header_user">User Menu</a>
+            <ul>
+                <li><a *ngIf="userService.roleCheck(['User'])" routerLink="/user">My Orders</a></li>
+                <li><a *ngIf="userService.roleCheck(['User'])" routerLink="/cart">My Cart</a></li>
+                <li><a *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
