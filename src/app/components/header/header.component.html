@@ -36,10 +36,11 @@
             </a>
         </li>
         <span class="example-spacer"></span>
-        <li ><a routerLink="/admin" *ngIf="userService.roleCheck(['Admin'])" class="header_admin">Admin Menu</a>
+        <li ><a *ngIf="userService.roleCheck(['Admin'])" class="header_admin">Admin Menu</a>
             <ul>
                 <li><a routerLink="/addNewProduct">Add New Product</a></li>
                 <li><a routerLink="/showAllProduct">Show All Product</a></li>
+                <li><a routerLink="/admin">Show All Orders</a></li>
                 <li><a *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
             </ul>
         </li>
